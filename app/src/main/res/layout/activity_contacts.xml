@@ -1,41 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/surface_soft"
+    android:orientation="vertical"
     android:padding="12dp">
 
-    <EditText
-        android:id="@+id/etSearch"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search contacts" />
+        android:background="@drawable/bg_header_gradient"
+        android:orientation="vertical"
+        android:padding="14dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvContacts"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Emergency Contact and First Aid Hub"
+                android:textColor="@color/header_text"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnMore"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="More options"
+                android:src="@android:drawable/ic_menu_more"
+                android:tint="@color/header_text" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Emergency Contacts"
+            android:textColor="@color/header_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/etSearch"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_above="@id/fabAddContact" />
+        app:cardBackgroundColor="@color/card_bg"
+        app:cardCornerRadius="8dp">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="10dp"
-        android:contentDescription="SOS"
-        android:src="@android:drawable/ic_dialog_alert" />
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:hint="Search contacts"
+            android:padding="12dp"
+            android:textColor="@color/input_text"
+            android:textColorHint="@color/input_hint" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
-        android:contentDescription="Add contact"
-        android:src="@android:drawable/ic_input_add" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1">
 
-</RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="10dp"
+            android:contentDescription="SOS"
+            android:src="@android:drawable/ic_dialog_alert"
+            app:backgroundTint="@color/safety_red"
+            app:fabSize="mini" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:contentDescription="Add contact"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/safety_blue"
+            app:fabSize="mini" />
+    </FrameLayout>
+
+</LinearLayout>

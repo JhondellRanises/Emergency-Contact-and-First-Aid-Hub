@@ -24,4 +24,11 @@
         android:layout_height="wrap_content"
         android:hint="Type (Police, Barangay, etc.)" />
 
+    <CheckBox
+        android:id="@+id/cbPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Set as priority contact (shows first in SOS)" />
+
 </LinearLayout>

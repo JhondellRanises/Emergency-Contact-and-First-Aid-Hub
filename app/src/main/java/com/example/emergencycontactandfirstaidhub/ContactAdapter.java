@@ -19,6 +19,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.VH> {
     public interface ContactActions {
         void onEdit(EmergencyContact contact);
         void onDelete(EmergencyContact contact);
+        void onTogglePriority(EmergencyContact contact);
     }
 
     private final Context context;
@@ -48,10 +49,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.VH> {
         h.tvName.setText(item.name);
         h.tvType.setText(item.type);
         h.tvPhone.setText(item.phone);
-        h.btnCall.setOnClickListener(v -> {
+        h.btnPriority.setImageResource(item.isPriority == 1 ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off);
+        h.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + item.phone));
             context.startActivity(intent);
         });
+        h.btnPriority.setOnClickListener(v -> actions.onTogglePriority(item));
         h.btnEdit.setOnClickListener(v -> actions.onEdit(item));
         h.btnDelete.setOnClickListener(v -> actions.onDelete(item));
     }
@@ -63,13 +66,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.VH> {
 
     static class VH extends RecyclerView.ViewHolder {
         TextView tvName, tvType, tvPhone;
-        ImageButton btnCall, btnEdit, btnDelete;
+        ImageButton btnPriority, btnEdit, btnDelete;
         VH(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvType = itemView.findViewById(R.id.tvType);
             tvPhone = itemView.findViewById(R.id.tvPhone);
-            btnCall = itemView.findViewById(R.id.btnCall);
+            btnPriority = itemView.findViewById(R.id.btnPriority);
             btnEdit = itemView.findViewById(R.id.btnEdit);
             btnDelete = itemView.findViewById(R.id.btnDelete);
         }

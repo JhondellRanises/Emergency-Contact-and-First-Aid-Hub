@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AppDatabase extends SQLiteOpenHelper {
     private static final String DB_NAME = "safety_hub.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public AppDatabase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -19,7 +19,7 @@ public class AppDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE contacts(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT, type TEXT)");
+        db.execSQL("CREATE TABLE contacts(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT, type TEXT, is_priority INTEGER DEFAULT 0)");
         db.execSQL("CREATE TABLE alerts(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, message TEXT, when_millis INTEGER, type TEXT)");
     }
 
@@ -35,6 +35,7 @@ public class AppDatabase extends SQLiteOpenHelper {
         cv.put("name", contact.name);
         cv.put("phone", contact.phone);
         cv.put("type", contact.type);
+        cv.put("is_priority", contact.isPriority);
         return getWritableDatabase().insert("contacts", null, cv);
     }
 
@@ -43,7 +44,14 @@ public class AppDatabase extends SQLiteOpenHelper {
         cv.put("name", contact.name);
         cv.put("phone", contact.phone);
         cv.put("type", contact.type);
+        cv.put("is_priority", contact.isPriority);
         return getWritableDatabase().update("contacts", cv, "id=?", new String[]{String.valueOf(contact.id)});
+    }
+
+    public int updatePriority(int id, int isPriority) {
+        ContentValues cv = new ContentValues();
+        cv.put("is_priority", isPriority);
+        return getWritableDatabase().update("contacts", cv, "id=?", new String[]{String.valueOf(id)});
     }
 
     public int deleteContact(int id) {
@@ -54,11 +62,11 @@ public class AppDatabase extends SQLiteOpenHelper {
         List<EmergencyContact> items = new ArrayList<>();
         String q = "%" + query + "%";
         Cursor c = getReadableDatabase().rawQuery(
-                "SELECT id,name,phone,type FROM contacts WHERE name LIKE ? OR phone LIKE ? OR type LIKE ? ORDER BY name ASC",
+                "SELECT id,name,phone,type,is_priority FROM contacts WHERE name LIKE ? OR phone LIKE ? OR type LIKE ? ORDER BY is_priority DESC, name ASC",
                 new String[]{q, q, q}
         );
         while (c.moveToNext()) {
-            items.add(new EmergencyContact(c.getInt(0), c.getString(1), c.getString(2), c.getString(3)));
+            items.add(new EmergencyContact(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
         }
         c.close();
         return items;

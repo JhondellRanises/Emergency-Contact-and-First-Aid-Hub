@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class AlertsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
         setTitle("Safety Alerts");
@@ -38,6 +40,7 @@ public class AlertsActivity extends AppCompatActivity {
         Spinner spType = findViewById(R.id.spAlertType);
         Button btnSave = findViewById(R.id.btnSaveAlert);
         Button btnSendNow = findViewById(R.id.btnSendNow);
+        ImageButton btnMore = findViewById(R.id.btnMore);
         ListView lv = findViewById(R.id.lvAlerts);
 
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Reminder", "Urgent", "Community"});
@@ -77,6 +80,7 @@ public class AlertsActivity extends AppCompatActivity {
             NotificationUtils.sendNow(this, title, message, type);
             Toast.makeText(this, "Alert sent.", Toast.LENGTH_SHORT).show();
         });
+        btnMore.setOnClickListener(v -> ThemeUtils.showThemeMenu(this, btnMore));
     }
 
     private void refreshList() {

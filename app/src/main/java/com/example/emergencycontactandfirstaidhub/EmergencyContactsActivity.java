@@ -5,7 +5,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +24,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         setTitle("Emergency Contacts");
@@ -31,6 +34,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.rvContacts);
         FloatingActionButton fabAdd = findViewById(R.id.fabAddContact);
         FloatingActionButton fabSos = findViewById(R.id.fabSos);
+        ImageButton btnMore = findViewById(R.id.btnMore);
 
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ContactAdapter(this, new ContactAdapter.ContactActions() {
@@ -42,6 +46,13 @@ public class EmergencyContactsActivity extends AppCompatActivity {
             @Override
             public void onDelete(EmergencyContact contact) {
                 db.deleteContact(contact.id);
+                loadContacts();
+            }
+
+            @Override
+            public void onTogglePriority(EmergencyContact contact) {
+                int next = contact.isPriority == 1 ? 0 : 1;
+                db.updatePriority(contact.id, next);
                 loadContacts();
             }
         });
@@ -59,6 +70,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
 
         fabAdd.setOnClickListener(v -> showContactDialog(null));
         fabSos.setOnClickListener(v -> showSosDialog());
+        btnMore.setOnClickListener(v -> ThemeUtils.showThemeMenu(this, btnMore));
 
         if (getIntent().getBooleanExtra("open_sos", false)) {
             showSosDialog();
@@ -74,12 +86,14 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         EditText etName = view.findViewById(R.id.etName);
         EditText etPhone = view.findViewById(R.id.etPhone);
         EditText etType = view.findViewById(R.id.etType);
+        CheckBox cbPriority = view.findViewById(R.id.cbPriority);
 
         boolean edit = contact != null;
         if (edit) {
             etName.setText(contact.name);
             etPhone.setText(contact.phone);
             etType.setText(contact.type);
+            cbPriority.setChecked(contact.isPriority == 1);
         }
 
         new AlertDialog.Builder(this)
@@ -89,6 +103,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                     String name = etName.getText().toString().trim();
                     String phone = etPhone.getText().toString().trim();
                     String type = etType.getText().toString().trim();
+                    int isPriority = cbPriority.isChecked() ? 1 : 0;
                     if (name.isEmpty() || phone.isEmpty()) {
                         Toast.makeText(this, "Name and phone are required.", Toast.LENGTH_SHORT).show();
                         return;
@@ -97,9 +112,10 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                         contact.name = name;
                         contact.phone = phone;
                         contact.type = type;
+                        contact.isPriority = isPriority;
                         db.updateContact(contact);
                     } else {
-                        db.insertContact(new EmergencyContact(name, phone, type));
+                        db.insertContact(new EmergencyContact(name, phone, type, isPriority));
                     }
                     loadContacts();
                 })
@@ -110,7 +126,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
     private void showSosDialog() {
         StringBuilder sb = new StringBuilder("Call emergency services immediately.\n\n");
         for (EmergencyContact c : db.getAllContacts("")) {
-            if (c.name.equalsIgnoreCase("Police") || c.name.equalsIgnoreCase("Fire Department") || c.name.equalsIgnoreCase("Ambulance")) {
+            if (c.isPriority == 1 || c.name.equalsIgnoreCase("Police") || c.name.equalsIgnoreCase("Fire Department") || c.name.equalsIgnoreCase("Ambulance")) {
                 sb.append(c.name).append(": ").append(c.phone).append("\n");
             }
         }

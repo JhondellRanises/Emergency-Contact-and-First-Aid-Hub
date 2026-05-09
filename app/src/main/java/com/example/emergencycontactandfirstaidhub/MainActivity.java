@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -27,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
         Button firstAidBtn = findViewById(R.id.btnFirstAid);
         Button alertsBtn = findViewById(R.id.btnAlerts);
         Button sosBtn = findViewById(R.id.btnSos);
+        ImageButton btnMore = findViewById(R.id.btnMore);
         TextView disclaimer = findViewById(R.id.tvDisclaimer);
 
         contactsBtn.setOnClickListener(v -> startActivity(new Intent(this, EmergencyContactsActivity.class)));
         firstAidBtn.setOnClickListener(v -> startActivity(new Intent(this, FirstAidActivity.class)));
         alertsBtn.setOnClickListener(v -> startActivity(new Intent(this, AlertsActivity.class)));
         sosBtn.setOnClickListener(v -> startActivity(new Intent(this, EmergencyContactsActivity.class).putExtra("open_sos", true)));
+        btnMore.setOnClickListener(v -> ThemeUtils.showThemeMenu(this, btnMore));
         disclaimer.setOnClickListener(v -> showDisclaimer());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -43,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
     private void seedDefaultsIfNeeded() {
         AppDatabase db = new AppDatabase(this);
         if (db.getAllContacts("").isEmpty()) {
-            db.insertContact(new EmergencyContact("Police", "911", "National Emergency"));
-            db.insertContact(new EmergencyContact("Fire Department", "911", "National Emergency"));
-            db.insertContact(new EmergencyContact("Ambulance", "911", "National Emergency"));
+            db.insertContact(new EmergencyContact("Police", "911", "National Emergency", 1));
+            db.insertContact(new EmergencyContact("Fire Department", "911", "National Emergency", 1));
+            db.insertContact(new EmergencyContact("Ambulance", "911", "National Emergency", 1));
             db.insertContact(new EmergencyContact("Disaster Response", "911", "DRRM"));
             db.insertContact(new EmergencyContact("Barangay Office", "09990000000", "Local Authority"));
         }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="safety_red">#E53935</color>
+    <color name="safety_blue">#1E88E5</color>
+    <color name="safety_light_blue">#111827</color>
+    <color name="surface_soft">#0F172A</color>
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="header_start">#1D4ED8</color>
+    <color name="header_end">#DC2626</color>
+    <color name="header_text">#FFFFFFFF</color>
+    <color name="card_bg">#1E293B</color>
+    <color name="button_text">#FFFFFFFF</color>
+    <color name="input_bg">#1E293B</color>
+    <color name="input_text">#F1F5F9</color>
+    <color name="input_hint">#94A3B8</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

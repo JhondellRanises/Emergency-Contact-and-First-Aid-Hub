@@ -2,6 +2,7 @@ package com.example.emergencycontactandfirstaidhub;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -15,13 +16,16 @@ public class FirstAidActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_aid);
         setTitle("First Aid Guide");
         seedGuides();
+        ImageButton btnMore = findViewById(R.id.btnMore);
+        btnMore.setOnClickListener(v -> ThemeUtils.showThemeMenu(this, btnMore));
 
         ListView list = findViewById(R.id.lvFirstAid);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, guides.keySet().toArray(new String[0]));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_first_aid_topic, guides.keySet().toArray(new String[0]));
         list.setAdapter(adapter);
         list.setOnItemClickListener((parent, view, position, id) -> {
             String key = adapter.getItem(position);

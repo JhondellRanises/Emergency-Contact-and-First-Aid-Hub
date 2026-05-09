@@ -1,7 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.EmergencyContactAndFirstAidHub" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/safety_red</item>
+        <item name="colorSecondary">@color/safety_blue</item>
+        <item name="android:colorBackground">@color/surface_soft</item>
+        <item name="android:windowBackground">@color/surface_soft</item>
+        <item name="android:statusBarColor">@color/surface_soft</item>
+        <item name="android:navigationBarColor">@color/surface_soft</item>
     </style>
 </resources>

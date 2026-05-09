@@ -4,6 +4,9 @@
         <item name="colorPrimary">@color/safety_red</item>
         <item name="colorSecondary">@color/safety_blue</item>
         <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowBackground">@color/surface_soft</item>
+        <item name="android:statusBarColor">@color/safety_blue</item>
+        <item name="android:navigationBarColor">@color/surface_soft</item>
     </style>
 
     <style name="Theme.EmergencyContactAndFirstAidHub" parent="Base.Theme.EmergencyContactAndFirstAidHub" />
