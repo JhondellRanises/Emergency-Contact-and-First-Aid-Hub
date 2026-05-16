@@ -1,3 +1,339 @@
 <resources>
     <string name="app_name">Emergency Contact and First Aid Hub</string>
+    <string name="guide_back_desc">Go back</string>
+
+    <string name="burn_degree_picker_title">Select burn degree</string>
+    <string name="burn_first_degree_label">First degree</string>
+    <string name="burn_second_degree_label">Second degree</string>
+    <string name="burn_third_degree_label">Third degree</string>
+    <string name="burn_first_degree_image_desc">Illustration for first-degree burn</string>
+    <string name="burn_second_degree_image_desc">Illustration for second-degree burn</string>
+    <string name="burn_third_degree_image_desc">Illustration for third-degree burn</string>
+
+    <string name="burn_guide_first_title">First-degree burn</string>
+    <string name="burn_guide_second_title">Second-degree burn</string>
+    <string name="burn_guide_third_title">Third-degree burn</string>
+
+    <string name="burn_guide_first_body"><![CDATA[<b>Signs:</b><br/>
+&#8226; Red skin<br/>
+&#8226; Pain<br/>
+&#8226; No blisters<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Cool water 10–20 minutes<br/>
+&#8226; Aloe vera or mild moisturizer after cooling<br/>
+&#8226; Pain reliever (like paracetamol or ibuprofen)<br/>
+&#8226; Usually heals in 3–7 days]]></string>
+
+    <string name="burn_guide_second_body"><![CDATA[<b>Signs:</b><br/>
+&#8226; Blisters<br/>
+&#8226; Swelling<br/>
+&#8226; Very painful<br/>
+&#8226; Wet or shiny skin<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Cool water immediately (very important)<br/>
+&#8226; Do NOT pop blisters<br/>
+&#8226; Cover with sterile non-stick dressing<br/>
+&#8226; Pain relief meds<br/>
+&#8226; Keep clean and dry<br/>
+&#8226; May take 1–3 weeks to heal<br/>
+<br/>
+<b>See a doctor if:</b><br/>
+&#8226; Burn is larger than your palm<br/>
+&#8226; On face, hands, feet, or genitals<br/>
+&#8226; Signs of infection (pus, fever, bad smell)]]></string>
+
+    <string name="burn_guide_third_body"><![CDATA[<b>Example:</b><br/>
+Fire, electric shock, chemical burn<br/>
+<br/>
+<b>Signs:</b><br/>
+&#8226; White, black, or charred skin<br/>
+&#8226; May not hurt (nerves destroyed)<br/>
+&#8226; Very deep damage<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Call emergency help or go to hospital immediately<br/>
+&#8226; Do NOT remove stuck clothing<br/>
+&#8226; Cover loosely with clean cloth<br/>
+&#8226; Do NOT apply water for long periods if extensive burn (just protect and get help)]]></string>
+
+    <string name="bleeding_type_picker_title">Select bleeding type</string>
+    <string name="bleeding_capillary_label">Capillary bleeding</string>
+    <string name="bleeding_venous_label">Venous bleeding</string>
+    <string name="bleeding_arterial_label">Arterial bleeding</string>
+    <string name="bleeding_capillary_image_desc">Illustration for capillary bleeding</string>
+    <string name="bleeding_venous_image_desc">Illustration for venous bleeding</string>
+    <string name="bleeding_arterial_image_desc">Illustration for arterial bleeding</string>
+
+    <string name="bleeding_guide_capillary_title">Capillary bleeding</string>
+    <string name="bleeding_guide_venous_title">Venous bleeding</string>
+    <string name="bleeding_guide_arterial_title">Arterial bleeding</string>
+
+    <string name="bleeding_guide_capillary_body"><![CDATA[Usually the mildest type.<br/>
+<br/>
+<b>What it looks like:</b><br/>
+&#8226; Blood oozes slowly<br/>
+&#8226; Bright red or dark red<br/>
+&#8226; Comes from scrapes or small cuts<br/>
+<br/>
+<b>Common scenarios:</b><br/>
+&#8226; Knee scrape from falling<br/>
+&#8226; Small kitchen knife cut<br/>
+&#8226; Paper cut<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Wash hands if possible<br/>
+&#8226; Clean wound with clean water<br/>
+&#8226; Apply gentle pressure using clean cloth or gauze<br/>
+&#8226; Put antiseptic if available<br/>
+&#8226; Cover with bandage<br/>
+<br/>
+Usually stops within minutes.<br/>
+<br/>
+<b>Watch for:</b><br/>
+&#8226; Dirt inside wound<br/>
+<br/>
+<b>Infection signs:</b><br/>
+&#8226; swelling<br/>
+&#8226; pus<br/>
+&#8226; redness spreading<br/>
+&#8226; fever]]></string>
+
+    <string name="bleeding_guide_venous_body"><![CDATA[Comes from veins. More serious than capillary bleeding.<br/>
+<br/>
+<b>What it looks like:</b><br/>
+&#8226; Steady flow of dark red blood<br/>
+&#8226; Does NOT usually spurt<br/>
+&#8226; Can bleed heavily<br/>
+<br/>
+<b>Common scenarios:</b><br/>
+&#8226; Deep cut from glass<br/>
+&#8226; Knife injury<br/>
+&#8226; Accident involving sharp metal<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Apply firm direct pressure immediately<br/>
+&#8226; Raise injured area above heart if possible<br/>
+&#8226; Use clean cloth/gauze<br/>
+&#8226; Keep pressure for at least 10 minutes<br/>
+&#8226; Add more cloth if blood soaks through<br/>
+&#8226; Do NOT remove the first cloth<br/>
+<br/>
+<b>When to get help:</b><br/>
+&#8226; Bleeding won’t stop<br/>
+&#8226; Large wound<br/>
+&#8226; Person becomes pale, weak, dizzy]]></string>
+
+    <string name="bleeding_guide_arterial_body"><![CDATA[Most dangerous type.<br/>
+<br/>
+<b>What it looks like:</b><br/>
+&#8226; Bright red blood<br/>
+&#8226; Spurts or pulses with heartbeat<br/>
+&#8226; Heavy and fast bleeding<br/>
+<br/>
+<b>Common scenarios:</b><br/>
+&#8226; Serious accident<br/>
+&#8226; Deep stab wound<br/>
+&#8226; Machinery injury<br/>
+&#8226; Major trauma<br/>
+<br/>
+<b>Treatment:</b><br/>
+&#8226; Call emergency help immediately<br/>
+&#8226; Apply VERY firm pressure<br/>
+&#8226; Use both hands if needed<br/>
+&#8226; If possible, elevate the limb<br/>
+&#8226; If bleeding is life-threatening and won’t stop: use a tourniquet above the wound<br/>
+&#8226; Note the time applied<br/>
+<br/>
+<b>Important:</b><br/>
+A person can lose dangerous amounts of blood very fast.<br/>
+<br/>
+<b>Watch for shock:</b><br/>
+&#8226; cold skin<br/>
+&#8226; confusion<br/>
+&#8226; weakness<br/>
+&#8226; rapid breathing<br/>
+&#8226; fainting<br/>
+<br/>
+Lay them down and keep them warm while waiting for help.]]></string>
+
+    <string name="choking_age_picker_title">Select age group</string>
+    <string name="choking_infant_label">Infant</string>
+    <string name="choking_above_one_label">Above 1</string>
+    <string name="choking_infant_image_desc">Illustration for infant choking</string>
+    <string name="choking_above_one_image_desc">Illustration for choking above 1 year old</string>
+
+    <string name="choking_guide_above_one_title">Choking (above 1 year)</string>
+    <string name="choking_guide_infant_title">Choking (infant under 1 year)</string>
+
+    <string name="choking_above_one_step1"><![CDATA[<b>1. Encourage coughing</b><br/>
+If they can cough hard, let them try first.]]></string>
+    <string name="choking_above_one_back_blows_heading"><![CDATA[<b>2. Back blows</b>]]></string>
+    <string name="choking_above_one_back_blows_steps"><![CDATA[&#8226; Stand slightly behind them.<br/>
+&#8226; Lean them forward.<br/>
+&#8226; Give 5 strong back blows between the shoulder blades using your palm.]]></string>
+    <string name="choking_above_one_abdominal_heading"><![CDATA[<b>3. Abdominal thrusts</b>]]></string>
+    <string name="choking_above_one_abdominal_steps"><![CDATA[&#8226; Stand behind them.<br/>
+&#8226; Wrap your arms around their waist.<br/>
+&#8226; Make a fist, place it just above the belly button.<br/>
+&#8226; Grab fist with your other hand.<br/>
+&#8226; Pull inward and upward quickly.<br/>
+&#8226; Do 5 thrusts.]]></string>
+    <string name="choking_above_one_repeat"><![CDATA[<b>Repeat:</b><br/>
+5 back blows + 5 abdominal thrusts until object comes out or they collapse.]]></string>
+    <string name="choking_back_blows_image_desc">Back blows technique illustration</string>
+    <string name="choking_abdominal_thrust_image_desc">Abdominal thrust technique illustration</string>
+
+    <string name="choking_infant_back_blows_heading"><![CDATA[<b>1. Back blows</b>]]></string>
+    <string name="choking_infant_back_blows_steps"><![CDATA[&#8226; Hold baby face-down on your forearm.<br/>
+&#8226; Support head and jaw (keep head lower than body).<br/>
+&#8226; Give 5 firm back blows between shoulder blades.]]></string>
+    <string name="choking_infant_chest_heading"><![CDATA[<b>2. Chest thrusts</b>]]></string>
+    <string name="choking_infant_chest_steps"><![CDATA[&#8226; Turn baby face-up on your arm.<br/>
+&#8226; Use 2 fingers in the center of the chest (just below nipple line).<br/>
+&#8226; Give 5 quick chest thrusts.]]></string>
+    <string name="choking_infant_repeat"><![CDATA[<b>Repeat:</b><br/>
+5 back blows + 5 chest thrusts until object comes out.]]></string>
+    <string name="choking_infant_back_blows_image_desc">Infant back blows technique illustration</string>
+    <string name="choking_infant_chest_thrust_image_desc">Infant chest thrust technique illustration</string>
+
+    <string name="cpr_guide_title">CPR</string>
+    <string name="cpr_laydown_image_desc">Laying the person on their back illustration</string>
+    <string name="cpr_pulse_image_desc">Checking pulse and breathing illustration</string>
+    <string name="cpr_chest_compressions_image_desc">Chest compressions hand placement illustration</string>
+    <string name="cpr_rescue_breaths_image_desc">Rescue breathing mouth-to-mouth illustration</string>
+
+    <string name="cpr_intro"><![CDATA[Gently lay the person on their back on a safe, not crowded area.]]></string>
+    <string name="cpr_check_breathing"><![CDATA[<b>1. Check breathing</b><br/>
+<br/>
+<b>Look for:</b><br/>
+&#8226; pulse<br/>
+&#8226; chest movement<br/>
+&#8226; normal breathing sounds]]></string>
+    <string name="cpr_heading"><![CDATA[<b>CPR</b>]]></string>
+    <string name="cpr_technique"><![CDATA[<b>Place:</b><br/>
+&#8226; heel of one hand on the center of the chest<br/>
+&#8226; second hand on top<br/>
+<br/>
+<b>The correct spot:</b><br/>
+&#8226; middle of chest<br/>
+&#8226; lower half of breastbone<br/>
+<br/>
+Interlock fingers.<br/>
+<br/>
+Keep fingers off the ribs.<br/>
+<br/>
+<b>Body position</b><br/>
+&#8226; Keep your arms straight<br/>
+&#8226; Shoulders directly above hands<br/>
+<br/>
+Use body weight, not just arm strength.<br/>
+<br/>
+<b>Chest compressions</b><br/>
+<br/>
+<b>Push:</b><br/>
+&#8226; hard<br/>
+&#8226; fast<br/>
+<br/>
+<b>Compression depth:</b><br/>
+about 2 inches (5 cm)<br/>
+<br/>
+<b>Rate:</b><br/>
+100–120 compressions per minute<br/>
+<br/>
+Allow full chest recoil after every push.<br/>
+<br/>
+Do not lean on the chest.<br/>
+<br/>
+Give 30 compressions.]]></string>
+    <string name="cpr_opening_airway"><![CDATA[<b>OPENING THE AIRWAY</b><br/>
+<br/>
+<b>Head tilt–chin lift</b><br/>
+&#8226; Place one hand on forehead<br/>
+&#8226; Tilt head back gently<br/>
+&#8226; Lift chin with two fingers<br/>
+<br/>
+This opens the airway.]]></string>
+    <string name="cpr_rescue_heading"><![CDATA[<b>GIVE RESCUE BREATHS</b>]]></string>
+    <string name="cpr_rescue_breaths"><![CDATA[<b>How to give breaths</b><br/>
+&#8226; Pinch nose closed<br/>
+&#8226; Seal your mouth over theirs<br/>
+&#8226; Give 1 breath for about 1 second<br/>
+<br/>
+Watch for chest rise.<br/>
+<br/>
+<b>Give:</b><br/>
+2 breaths total<br/>
+<br/>
+<b>If chest does not rise:</b><br/>
+&#8226; reposition head<br/>
+&#8226; try again]]></string>
+    <string name="cpr_continue"><![CDATA[<b>STEP 7: CONTINUE CPR</b><br/>
+<br/>
+<b>Repeat:</b><br/>
+&#8226; 30 compressions<br/>
+&#8226; 2 breaths<br/>
+<br/>
+<b>Continue until:</b><br/>
+&#8226; help arrives<br/>
+&#8226; AED is ready<br/>
+&#8226; person breathes normally<br/>
+&#8226; you are too exhausted]]></string>
+
+    <string name="fractures_guide_title">Fractures</string>
+    <string name="fractures_splint_image_desc">Splinting an injured limb illustration</string>
+    <string name="fractures_cold_compress_image_desc">Applying a cold compress illustration</string>
+
+    <string name="fractures_get_help"><![CDATA[<b>Immediately get medical help</b>]]></string>
+    <string name="fractures_what_not_to_do"><![CDATA[<b>WHAT NOT TO DO</b><br/>
+&#8226; Don’t try to push bone back<br/>
+&#8226; Don’t force movement<br/>
+&#8226; Don’t give food/drink if surgery might be needed<br/>
+&#8226; Don’t ignore pain even if it seems minor]]></string>
+    <string name="fractures_step1"><![CDATA[<b>1. Keep the person still</b><br/>
+&#8226; Do not move the injured part<br/>
+&#8226; Movement can make it worse]]></string>
+    <string name="fractures_step2"><![CDATA[<b>2. Control bleeding (if any)</b><br/>
+&#8226; Use clean cloth or bandage<br/>
+&#8226; Apply gentle pressure<br/>
+&#8226; If bone is sticking out, do NOT push it back]]></string>
+    <string name="fractures_step3_heading"><![CDATA[<b>3. Immobilize the area</b>]]></string>
+    <string name="fractures_step3_steps"><![CDATA[&#8226; Use a splint (wood, stick, cardboard, etc.)<br/>
+&#8226; Secure with cloth, bandage, or tape<br/>
+&#8226; Keep it in the position you found it]]></string>
+    <string name="fractures_step4_heading"><![CDATA[<b>4. Apply cold compress</b>]]></string>
+    <string name="fractures_step4_steps"><![CDATA[&#8226; Wrap ice in cloth<br/>
+&#8226; Apply 10–15 minutes<br/>
+&#8226; Helps reduce swelling]]></string>
+    <string name="fractures_step5"><![CDATA[<b>5. Elevate (if possible)</b><br/>
+&#8226; Only if it doesn’t cause more pain]]></string>
+
+    <string name="fainting_guide_title">Fainting</string>
+    <string name="fainting_faint_image_desc">Helping a person lie down after fainting illustration</string>
+    <string name="fainting_elevate_legs_image_desc">Raising the legs after fainting illustration</string>
+    <string name="fainting_remove_clothes_image_desc">Loosening tight clothing illustration</string>
+    <string name="fainting_talk_image_desc">Staying with and reassuring a person who fainted illustration</string>
+
+    <string name="fainting_intro"><![CDATA[<b>WHAT TO DO (STEP BY STEP)</b>]]></string>
+    <string name="fainting_step1_heading"><![CDATA[<b>1. Help them lie down</b>]]></string>
+    <string name="fainting_step1_steps"><![CDATA[&#8226; Lay them flat on their back<br/>
+&#8226; This improves blood flow to the brain<br/>
+<br/>
+<b>If they can’t lie down:</b><br/>
+&#8226; sit them down<br/>
+&#8226; lower their head between their knees]]></string>
+    <string name="fainting_step2_heading"><![CDATA[<b>2. Raise the legs</b>]]></string>
+    <string name="fainting_step2_steps"><![CDATA[&#8226; Lift legs about 12 inches (30 cm)<br/>
+&#8226; Use a bag, chair, or pillow<br/>
+<br/>
+This helps blood return to the brain.]]></string>
+    <string name="fainting_step3_heading"><![CDATA[<b>3. Loosen tight clothing</b>]]></string>
+    <string name="fainting_step3_steps"><![CDATA[&#8226; Loosen collar, belt, or tight clothes<br/>
+&#8226; Helps breathing and circulation]]></string>
+    <string name="fainting_step4_heading"><![CDATA[<b>4. Stay with them</b>]]></string>
+    <string name="fainting_step4_steps"><![CDATA[&#8226; Most people wake up in 1–2 minutes<br/>
+&#8226; Keep them calm<br/>
+<br/>
+Do NOT let them stand up right away.]]></string>
 </resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
+
+    <TextView
+        android:id="@+id/tv_scroll_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:breakStrategy="balanced"
+        android:hyphenationFrequency="none"
+        android:lineSpacingExtra="4dp"
+        android:lineSpacingMultiplier="1.12"
+        android:padding="16dp"
+        android:textColor="@color/text_primary"
+        android:textIsSelectable="true"
+        android:textSize="16sp" />
+</ScrollView>

@@ -1,6 +1,7 @@
 package com.example.emergencycontactandfirstaidhub;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -29,23 +30,114 @@ public class FirstAidActivity extends AppCompatActivity {
         list.setAdapter(adapter);
         list.setOnItemClickListener((parent, view, position, id) -> {
             String key = adapter.getItem(position);
-            new AlertDialog.Builder(this)
-                    .setTitle(key)
-                    .setMessage(guides.get(key))
-                    .setPositiveButton("OK", null)
-                    .show();
+            if ("Burns".equals(key)) {
+                showBurnDegreeDialog();
+                return;
+            }
+            if ("Bleeding".equals(key)) {
+                showBleedingTypeDialog();
+                return;
+            }
+            if ("Choking".equals(key)) {
+                showChokingAgeDialog();
+                return;
+            }
+            if ("CPR".equals(key)) {
+                FirstAidGuideActivity.start(this, R.string.cpr_guide_title, FirstAidGuideBuilder.GUIDE_CPR);
+                return;
+            }
+            if ("Fractures".equals(key)) {
+                FirstAidGuideActivity.start(this, R.string.fractures_guide_title, FirstAidGuideBuilder.GUIDE_FRACTURES);
+                return;
+            }
+            if ("Fainting".equals(key)) {
+                FirstAidGuideActivity.start(this, R.string.fainting_guide_title, FirstAidGuideBuilder.GUIDE_FAINTING);
+                return;
+            }
+            String message = guides.get(key);
+            if (message != null && !message.isEmpty()) {
+                FirstAidGuideActivity.startPlain(this, key, message);
+            }
         });
     }
 
     private void seedGuides() {
-        guides.put("Burns", "1. Cool burn under running water for 20 minutes.\n2. Remove tight items near burn.\n3. Cover with sterile non-stick dressing.\nWarning: Call emergency services immediately for severe burns.");
-        guides.put("Bleeding", "1. Apply firm pressure with clean cloth.\n2. Elevate injured area if possible.\n3. Do not remove soaked cloth, add more layers.\nWarning: Call emergency services immediately if bleeding is heavy.");
-        guides.put("Choking", "1. Encourage coughing if conscious.\n2. Perform 5 back blows and abdominal thrusts.\n3. Start CPR if unresponsive.\nWarning: Call emergency services immediately.");
-        guides.put("Fractures", "1. Keep person still and support injured part.\n2. Immobilize with splint.\n3. Apply cold pack wrapped in cloth.\nWarning: Call emergency services immediately.");
-        guides.put("CPR", "1. Check response and breathing.\n2. Begin chest compressions at 100-120/min.\n3. Give rescue breaths if trained.\nWarning: Call emergency services immediately.");
-        guides.put("Fainting", "1. Lay person flat and raise legs.\n2. Loosen tight clothing.\n3. Monitor breathing.\nWarning: Call emergency services if consciousness does not return quickly.");
+        guides.put("Burns", "");
+        guides.put("Bleeding", "");
+        guides.put("Choking", "");
+        guides.put("Fractures", "");
+        guides.put("CPR", "");
+        guides.put("Fainting", "");
         guides.put("Electric shock", "1. Turn off power source first.\n2. Do not touch victim until safe.\n3. Check breathing and start CPR if needed.\nWarning: Call emergency services immediately.");
         guides.put("Heat stroke", "1. Move to cool place.\n2. Cool body with wet cloth/ice packs.\n3. Give sips of cool water if conscious.\nWarning: Call emergency services immediately.");
         guides.put("Poisoning", "1. Remove from poison source.\n2. Do not force vomiting.\n3. Keep poison container for identification.\nWarning: Call emergency services immediately.");
+    }
+
+    private void showBurnDegreeDialog() {
+        View content = getLayoutInflater().inflate(R.layout.dialog_burn_degree_choice, null);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.burn_degree_picker_title)
+                .setView(content)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+
+        content.findViewById(R.id.row_burn_first).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.burn_guide_first_title, FirstAidGuideBuilder.GUIDE_BURN_FIRST);
+        });
+        content.findViewById(R.id.row_burn_second).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.burn_guide_second_title, FirstAidGuideBuilder.GUIDE_BURN_SECOND);
+        });
+        content.findViewById(R.id.row_burn_third).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.burn_guide_third_title, FirstAidGuideBuilder.GUIDE_BURN_THIRD);
+        });
+
+        dialog.show();
+    }
+
+    private void showBleedingTypeDialog() {
+        View content = getLayoutInflater().inflate(R.layout.dialog_bleeding_type_choice, null);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.bleeding_type_picker_title)
+                .setView(content)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+
+        content.findViewById(R.id.row_bleeding_capillary).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.bleeding_guide_capillary_title, FirstAidGuideBuilder.GUIDE_BLEEDING_CAPILLARY);
+        });
+        content.findViewById(R.id.row_bleeding_venous).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.bleeding_guide_venous_title, FirstAidGuideBuilder.GUIDE_BLEEDING_VENOUS);
+        });
+        content.findViewById(R.id.row_bleeding_arterial).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.bleeding_guide_arterial_title, FirstAidGuideBuilder.GUIDE_BLEEDING_ARTERIAL);
+        });
+
+        dialog.show();
+    }
+
+    private void showChokingAgeDialog() {
+        View content = getLayoutInflater().inflate(R.layout.dialog_choking_age_choice, null);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.choking_age_picker_title)
+                .setView(content)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+
+        content.findViewById(R.id.row_choking_infant).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.choking_guide_infant_title, FirstAidGuideBuilder.GUIDE_CHOKING_INFANT);
+        });
+        content.findViewById(R.id.row_choking_above_one).setOnClickListener(v -> {
+            dialog.dismiss();
+            FirstAidGuideActivity.start(this, R.string.choking_guide_above_one_title, FirstAidGuideBuilder.GUIDE_CHOKING_ABOVE_ONE);
+        });
+
+        dialog.show();
     }
 }

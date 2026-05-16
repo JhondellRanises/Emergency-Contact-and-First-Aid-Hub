@@ -21,6 +21,10 @@
             android:name=".FirstAidActivity"
             android:exported="false" />
         <activity
+            android:name=".FirstAidGuideActivity"
+            android:exported="false"
+            android:parentActivityName=".FirstAidActivity" />
+        <activity
             android:name=".EmergencyContactsActivity"
             android:exported="false" />
         <activity
