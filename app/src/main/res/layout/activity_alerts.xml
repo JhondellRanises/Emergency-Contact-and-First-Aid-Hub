@@ -27,7 +27,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Emergency Contact and First Aid Hub"
+                    android:text="@string/app_name"
                     android:textColor="@color/header_text"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -38,7 +38,7 @@
                     android:layout_height="34dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="More options"
-                    android:src="@android:drawable/ic_menu_more"
+                    android:src="@drawable/ic_more_vert"
                     android:tint="@color/header_text" />
             </LinearLayout>
 
@@ -106,14 +106,32 @@
             android:textColor="@color/button_text"
             android:text="Send Urgent Alert Now" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Saved Alerts"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Saved Alerts"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnDeleteAllAlerts"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:background="@android:color/transparent"
+                android:text="Delete all"
+                android:textColor="@color/button_text"
+                android:textAllCaps="false"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/lvAlerts"

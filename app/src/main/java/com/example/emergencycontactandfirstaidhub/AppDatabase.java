@@ -81,6 +81,20 @@ public class AppDatabase extends SQLiteOpenHelper {
         return getWritableDatabase().insert("alerts", null, cv);
     }
 
+    public boolean alertExists(String title, String message, long whenMillis, String type) {
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT 1 FROM alerts WHERE title=? AND message=? AND when_millis=? AND type=? LIMIT 1",
+                new String[]{title, message, String.valueOf(whenMillis), type}
+        );
+        boolean exists = c.moveToFirst();
+        c.close();
+        return exists;
+    }
+
+    public int deleteAllAlerts() {
+        return getWritableDatabase().delete("alerts", null, null);
+    }
+
     public List<AlertItem> getAllAlerts() {
         List<AlertItem> items = new ArrayList<>();
         Cursor c = getReadableDatabase().rawQuery(
